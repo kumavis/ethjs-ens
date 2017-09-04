@@ -1,4 +1,4 @@
-const test = require('tape')
+const test = require('blue-tape')
 const HttpProvider = require('ethjs-provider-http')
 const provider = new HttpProvider('https://ropsten.infura.io')
 const notFound = 'ENS name not defined.'
@@ -60,11 +60,14 @@ test('getResolver resistance.eth', function (t) {
   t.plan(1)
 
   const node = ens.namehash('resistance.eth')
-  ens.getResolverAddressForNode(node)
-  .then((address) => {
-    const expected = '0x4c641fb9bad9b60ef180c31f56051ce826d21a9a'
-    t.equal(address, expected)
-  })
+
+  return (
+    ens.getResolverAddressForNode(node)
+    .then((address) => {
+      const expected = '0x4c641fb9bad9b60ef180c31f56051ce826d21a9a'
+      t.equal(address, expected)
+    })
+  )
 })
 
 test('lookup resolver address for node', function (t) {

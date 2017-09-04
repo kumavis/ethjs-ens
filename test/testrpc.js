@@ -1,12 +1,12 @@
-const test = require('tape')
+const test = require('blue-tape')
 const sinon = require('sinon')
 
 const Eth = require('ethjs-query')
 const EthContract = require('ethjs-contract')
 const Web3 = require('web3')
-const fs = require('fs');
-const solc = require('solc');
-const TestRPC = require('ethereumjs-testrpc');
+const fs = require('fs')
+const solc = require('solc')
+const TestRPC = require('ethereumjs-testrpc')
 const ENS = require('../')
 const namehash = require('eth-ens-namehash')
 
@@ -21,7 +21,8 @@ const contract = new EthContract(eth)
 
 const registryAbi = require('../abis/registry.json')
 const resolverAbi = require('../abis/resolver.json')
-const source = fs.readFileSync(__dirname + '/ens.sol').toString(); const compiled = solc.compile(source, 1)
+const source = fs.readFileSync(__dirname + '/ens.sol').toString()
+const compiled = solc.compile(source, 1)
 const deployer = compiled.contracts[':DeployENS']
 let deploy, ensRoot, ens, accounts, deployRoot
 
@@ -32,10 +33,10 @@ test('setup', { timeout: 5000 }, function (t) {
     accounts = result
 
     const interface = JSON.parse(deployer.interface)
-    var deployensContract = web3.eth.contract(JSON.parse(deployer.interface));
+    var deployEnsContract = web3.eth.contract(JSON.parse(deployer.interface))
 
     // Deploy the contract
-    const deployens = deployensContract.new({
+    const deployens = deployEnsContract.new({
       from: accounts[0],
       data: deployer.bytecode,
       gas: 4700000,
