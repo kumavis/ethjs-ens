@@ -1,5 +1,7 @@
 # EthJS ENS
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/kumavis/ethjs-ens.svg)](https://greenkeeper.io/)
+
 [![CircleCI](https://circleci.com/gh/flyswatter/ethjs-ens.svg?style=svg)](https://circleci.com/gh/flyswatter/ethjs-ens)
 [![Coverage Status](https://coveralls.io/repos/github/ethjs/ethjs-ens/badge.svg?branch=master)](https://coveralls.io/github/ethjs/ethjs-ens?branch=master)
 
